@@ -16,8 +16,8 @@
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="JW Enterprise: JW Enterprise | Grading, ADU Pads &amp; Septic in Penn Valley, CA">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="apple-touch-icon" href="assets/fb/logo-112.jpg">
-<link rel="icon" href="assets/fb/logo-112.jpg">
+<link rel="apple-touch-icon" href="assets/higgsfield/machines/icon-112.jpg">
+<link rel="icon" href="assets/higgsfield/machines/icon-112.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -32,7 +32,7 @@
   "telephone": "+1-530-277-3179",
   "email": "Jwenterprise66@gmail.com",
   "image": "assets/fb/pavers.jpg",
-  "logo": "assets/fb/logo-112.jpg",
+  "logo": "assets/higgsfield/machines/icon-112.jpg",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Penn Valley",
@@ -298,6 +298,34 @@ footer .lic{font-family:var(--f-data);font-size:.85rem}
 .svc-media figcaption{font:500 .75rem/1.4 var(--f-data);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
 /* Feather the logo video into the page (matters when its background is a photo, not pure black) */
 .logo-video-stage video{-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 42%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 42%,transparent 100%)}
+/* Still photo behind the hero (hero.bg_image): the owner's real job photo, darkened so text and the logo video read.
+   The logo video is white-on-black, so screen-blending drops its black and the logo sits on the photo. */
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;filter:saturate(.85) brightness(.55);transform:scale(1.03)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.6) 100%),linear-gradient(0deg,var(--ground) 0%,transparent 30%)}
+.hero:has(.hero-bg) .hero-in{z-index:1}
+.hero:has(.hero-bg) .logo-video-stage{background:transparent}
+.hero:has(.hero-bg) .logo-video-stage video{mix-blend-mode:screen}
+/* Social row under the hero form (hero.social): brand colors, links only where the profile exists */
+.social{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0;padding:0}
+.social a,.social .soon{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--surface);border:1px solid var(--hair)}
+.social svg{width:24px;height:24px}
+.social a:hover{border-color:var(--ink)}
+.social a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.social .soon{cursor:default}
+/* Scroll motion (added by JS only, so content shows without it) */
+.r{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.r.in{opacity:1;transform:none}
+.ba.pre .before{opacity:1;clip-path:inset(0 0 0 0)}
+.ba.wiping .before{opacity:1;clip-path:inset(0 0 0 100%);transition:clip-path 1.1s cubic-bezier(.65,0,.35,1)}
+.hero-bg{inset:-18% 0 0 0;will-change:transform}
+@media (prefers-reduced-motion:reduce){.r{opacity:1;transform:none;transition:none}.hero-bg{inset:0}}
+/* Art under the logo video (hero.stage_image): e.g. the client's own logo artwork, cut out on black.
+   Same grid cell as the video; the video screen-blends so its black drops out and the mark draws over the art. */
+.stage-img{grid-row:1;grid-column:1;width:min(760px,100%);aspect-ratio:2/1;height:auto;object-fit:cover;display:block}
+.has-form .stage-img{width:min(560px,100%);margin:0 0 4px -12px}
+.stage-img ~ .logo-video-stage{grid-row:1;grid-column:1;background:transparent;aspect-ratio:2/1}
+.stage-img ~ .logo-video-stage video{mix-blend-mode:screen;-webkit-mask-image:none;mask-image:none}
 
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 footer .legal{display:flex;gap:18px;flex-wrap:wrap}
@@ -309,7 +337,7 @@ footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3p
 
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="assets/fb/logo-112.jpg" alt="" width="44" height="44"><span>JW Enterprise</span></a>
+    <a class="brand" href="#top"><img src="assets/higgsfield/machines/icon-112.jpg" alt="" width="44" height="44"><span>JW Enterprise</span></a>
     <nav aria-label="Sections"><a href="#services">Services</a><a href="#work">Work</a><a href="#area">Area</a><a href="#faq">FAQ</a></nav>
     <a class="pill" href="tel:+15302773179">(530) 277-3179</a>
   </div>
@@ -318,9 +346,11 @@ footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3p
 <main id="top">
   <section class="hero" aria-labelledby="h1">
     <canvas id="grove" aria-hidden="true"></canvas>
+    
     <div class="wrap hero-in has-form">
       <div class="hero-main">
-        <div class="logo-video-stage"><video id="logoVideo" src="assets/higgsfield/logo-intro.mp4" poster="assets/higgsfield/logo-intro-end.jpg" muted playsinline autoplay preload="auto" aria-hidden="true"></video><span class="sr-only">JW Enterprise logo</span></div>
+        <img class="stage-img" src="assets/higgsfield/machines/machines-stage-1200.jpg" alt="" width="1200" height="600" decoding="async">
+        <div class="logo-video-stage"><video id="logoVideo" src="assets/higgsfield/line-mark/jw-logo-intro-up.mp4" data-poster="assets/higgsfield/line-mark/jw-logo-intro-up-end.jpg" muted playsinline autoplay preload="auto" aria-hidden="true"></video><span class="sr-only">JW Enterprise logo</span></div>
         
         <p class="eyebrow">Penn Valley · Nevada County, CA</p>
         <h1 id="h1">Grading, pads and septic for Nevada County.</h1>
@@ -345,6 +375,7 @@ footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3p
         <p class="form-status" id="formStatus" role="status"></p>
         <p class="form-note">Preview: this form isn't connected yet. At launch it goes to JW's lead inbox and texts him.</p>
       </form>
+      
       </div>
     </div>
   </section>
@@ -470,6 +501,54 @@ footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3p
 <div class="callbar"><a href="tel:+15302773179">Call JW · (530) 277-3179</a></div>
 
 <script>
+// Scroll motion: headings rise in, lists stagger, before/after pairs wipe from before to after,
+// hero photo drifts slower than the page. Content is visible without JS or with reduced motion.
+(function () {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  var groups = [
+    "main > section:not(.hero) .wrap > .eyebrow, main > section:not(.hero) h2",
+    ".rows > li", ".jobs > .job", ".revs > .rev, .rev", ".area .wrap > *:not(.eyebrow):not(h2)", ".values li, .faq details"
+  ];
+  var els = [];
+  groups.forEach(function (sel) {
+    document.querySelectorAll(sel).forEach(function (el) {
+      if (el.classList.contains("r")) return;
+      var sibs = [].filter.call(el.parentNode.children, function (c) { return c.matches(sel); });
+      el.style.transitionDelay = Math.min(sibs.indexOf(el), 5) * 90 + "ms";
+      el.classList.add("r"); els.push(el);
+    });
+  });
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  els.forEach(function (el) { io.observe(el); });
+
+  // Before/after: show the before photo, then wipe it away once the pair is on screen.
+  var wio = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var ba = e.target; wio.unobserve(ba);
+      setTimeout(function () {
+        if (ba.classList.contains("show-before")) { ba.classList.remove("pre"); return; }
+        ba.classList.add("wiping");
+        ba.querySelector(".before").addEventListener("transitionend", function done(ev) {
+          if (ev.propertyName !== "clip-path") return;
+          this.removeEventListener("transitionend", done); ba.classList.remove("pre", "wiping");
+        });
+      }, 500);
+    });
+  }, { threshold: 0.55 });
+  document.querySelectorAll(".ba").forEach(function (ba) { if (ba.querySelector(".before")) { ba.classList.add("pre"); wio.observe(ba); } });
+
+  // Hero photo parallax
+  var bg = document.querySelector(".hero-bg"), hero = document.querySelector(".hero"), ticking = false;
+  if (bg && hero) addEventListener("scroll", function () {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function () {
+      var y = Math.min(scrollY, hero.offsetHeight); bg.style.transform = "translate3d(0," + (y * 0.18).toFixed(1) + "px,0)"; ticking = false;
+    });
+  }, { passive: true });
+})();
 // Before/after toggles
 document.querySelectorAll(".ba-toggle").forEach(function (b) {
   b.addEventListener("click", function () {
@@ -484,7 +563,9 @@ document.querySelectorAll(".ba-toggle").forEach(function (b) {
   var v = document.getElementById("logoVideo"); if (!v) return;
   window.__logoMode = true;
   var c = document.getElementById("grove"); if (c) c.style.display = "none";
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); }
+  // The poster is the finished logo, so it's only for reduced motion (or a failed video); otherwise the intro starts from black.
+  v.addEventListener("error", function () { v.poster = v.dataset.poster; });
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); v.poster = v.dataset.poster; }
 })();
 // Hero option A: logo lines. Lines appear out of the black, wander with random
 // 90-degree turns for ~4s, then glide into the exact logo strokes, which then
