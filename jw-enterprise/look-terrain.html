@@ -7,10 +7,12 @@
 <meta name="robots" content="noindex, nofollow">
 <title>JW Enterprise | Grading, ADU Pads &amp; Septic in Penn Valley, CA</title>
 <meta name="description" content="Grading and land development contractor in Penn Valley, CA. ADU and house pads, septic systems, drainage, utilities and paving across Nevada County.">
-<link rel="icon" href="assets/fb/logo-400.jpg">
+<link rel="icon" href="assets/fb/logo-112.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Roboto+Mono:wght@400;500&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Roboto+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" media="print" onload="this.media=\'all\'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Roboto+Mono:wght@400;500&display=swap"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -20,7 +22,7 @@
   "telephone": "+1-530-277-3179",
   "email": "Jwenterprise66@gmail.com",
   "image": "assets/fb/excavator.jpg",
-  "logo": "assets/fb/logo-400.jpg",
+  "logo": "assets/fb/logo-112.jpg",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Penn Valley",
@@ -228,6 +230,14 @@ footer .lic{font-family:var(--f-data);color:var(--muted-on-structure)}
   .head-call{display:none}
 }
 
+/* Reviews (only when site.json has verbatim reviews with a source) */
+.reviews{padding-block:0 64px}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;margin-top:28px}
+.rev{margin:0;background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);padding:24px;display:grid;gap:14px;align-content:space-between}
+.rev blockquote{margin:0}
+.rev blockquote p{font:700 1.15rem/1.45 var(--f-display);max-width:none}
+.rev figcaption{font:400 .8rem/1.4 var(--f-data);color:var(--muted)}
+
 /* ---- terrain ---- */
 /* terrain (lane 3): extends trade-pro. Only the 3D hero differs. */
 .hero-terrain{padding-block:56px 64px;background:linear-gradient(180deg,var(--surface),var(--ground))}
@@ -251,7 +261,7 @@ footer .lic{font-family:var(--f-data);color:var(--muted-on-structure)}
 <header class="site">
   <div class="wrap">
     <a class="brand" href="#top">
-      <img src="assets/fb/logo-400.jpg" alt="" width="56" height="56">
+      <img src="assets/fb/logo-112.jpg" alt="" width="56" height="56">
       <span><b>JW Enterprise</b><small>GRADING · LAND DEVELOPMENT</small></span>
     </a>
     <a class="head-call" href="tel:+15302773179">(530) 277-3179</a>
@@ -317,6 +327,8 @@ footer .lic{font-family:var(--f-data);color:var(--muted-on-structure)}
       </div>
     </div>
   </section>
+
+  
 
   <section class="area" aria-labelledby="h-area">
     <div class="wrap">
