@@ -5,8 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- SPEC PREVIEW built by Morning Park. noindex until the owner says yes. -->
 <meta name="robots" content="noindex, nofollow">
-<title>HB Trees | Tree Removal &amp; Trimming, Tahoe to Sacramento</title>
+<title>HB Trees | Your Local, Reliable Tree Service · Gold Run, CA</title>
 <meta name="description" content="Tree removal, trimming, stump grinding, pruning, land clearing and 24/7 emergency response from Gold Run, CA, across the Sierra foothills.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HB Trees">
+<meta property="og:title" content="HB Trees | Your Local, Reliable Tree Service · Gold Run, CA">
+<meta property="og:description" content="Tree removal, trimming, stump grinding, pruning, land clearing and 24/7 emergency response from Gold Run, CA, across the Sierra foothills.">
+<meta property="og:url" content="https://mornpark.github.io/mp-previews/hb-trees/">
+<meta property="og:image" content="https://mornpark.github.io/mp-previews/hb-trees/assets/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HB Trees: HB Trees | Your Local, Reliable Tree Service · Gold Run, CA">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="assets/higgsfield/monogram-112.jpg">
 <link rel="icon" href="assets/higgsfield/monogram-112.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -302,6 +312,24 @@ footer .lic{font-family:var(--f-data);font-size:.85rem}
 .has-form .quote-form{gap:12px;padding:24px}
 .has-form .quote-form textarea{min-height:72px}
 
+/* Service clip (services.media): his own footage under the service rows */
+.svc-media{margin:40px 0 0 auto;max-width:760px;display:grid;gap:12px}
+.svc-media video,.svc-media img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:14px;background:var(--surface)}
+.svc-media figcaption{font:500 .75rem/1.4 var(--f-data);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+/* Feather the logo video into the page (matters when its background is a photo, not pure black) */
+.logo-video-stage video{-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 42%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 42%,transparent 100%)}
+/* Still photo behind the hero (hero.bg_image): the owner's real job photo, darkened so text and the logo video read.
+   The logo video is white-on-black, so screen-blending drops its black and the logo sits on the photo. */
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;filter:saturate(.85) brightness(.55);transform:scale(1.03)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.6) 100%),linear-gradient(0deg,var(--ground) 0%,transparent 30%)}
+.hero:has(.hero-bg) .hero-in{z-index:1}
+.hero:has(.hero-bg) .logo-video-stage{background:transparent}
+.hero:has(.hero-bg) .logo-video-stage video{mix-blend-mode:screen}
+
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+footer .legal{display:flex;gap:18px;flex-wrap:wrap}
+footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -318,12 +346,13 @@ footer .lic{font-family:var(--f-data);font-size:.85rem}
 <main id="top">
   <section class="hero" aria-labelledby="h1">
     <canvas id="grove" aria-hidden="true"></canvas>
+    <div class="hero-bg" aria-hidden="true"><img src="assets/site/hero-bg.jpg" alt="" decoding="async"></div>
     <div class="wrap hero-in has-form">
       <div class="hero-main">
         <div class="logo-video-stage"><video id="logoVideo" src="assets/higgsfield/logo-intro.mp4" poster="assets/higgsfield/logo-intro-end.jpg" muted playsinline autoplay preload="auto" aria-hidden="true"></video><span class="sr-only">HB Trees logo</span></div>
         
         <p class="eyebrow">Gold Run, CA · Sierra Nevada foothills</p>
-        <h1 id="h1">Tree care, Tahoe to Sacramento.</h1>
+        <h1 id="h1">Your local, reliable tree service.</h1>
         <p class="lede">HB Trees is a tree care company based in Gold Run, California. Tyler, Chandler and the crew remove, trim and prune trees, grind stumps and clear land across the Sierra foothills, and they answer the phone 24 hours a day.</p>
         <div class="ctas">
           <a class="btn primary" href="tel:+15303059121">Call (530) 305-9121</a>
@@ -339,6 +368,8 @@ footer .lic{font-family:var(--f-data);font-size:.85rem}
         <label for="town">Town<input id="town" name="town" autocomplete="address-level2"></label>
         <label for="job">What do you need?<select id="job" name="job"><option>Tree removal</option><option>Trimming or pruning</option><option>Stump grinding</option><option>Land clearing</option><option>Emergency</option><option>Something else</option></select></label>
         <label for="details">Details<textarea id="details" name="details"></textarea></label>
+        <div class="hp" aria-hidden="true"><label>Leave this empty<input name="company_site" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="t0" value="">
         <button class="btn primary" type="submit">Get a free estimate</button>
         <p class="form-status" id="formStatus" role="status"></p>
         <p class="form-note">Preview: this form isn't connected yet. At launch it goes straight to Tyler.</p>
@@ -360,6 +391,7 @@ footer .lic{font-family:var(--f-data);font-size:.85rem}
         <li><h3>Land clearing</h3><p>Brush, trees and debris cleared for building, fire safety or development.</p><p class="proof">Full-property jobs.</p></li>
         
       </ol>
+      
     </div>
   </section>
 
@@ -488,8 +520,9 @@ footer .lic{font-family:var(--f-data);font-size:.85rem}
 
 <footer>
   <div class="wrap">
-    <div><b>HB Trees</b><br>Gold Run, CA · Tahoe to Sacramento<br><a href="tel:+15303059121">(530) 305-9121</a></div>
+    <div><b>HB Trees</b><br>Gold Run, California<br><a href="tel:+15303059121">(530) 305-9121</a></div>
     <div class="lic">Licensed &amp; insured in California · License # to add</div>
+    <nav class="legal" aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
   </div>
 </footer>
 
@@ -645,16 +678,33 @@ document.querySelectorAll(".ba-toggle").forEach(function (b) {
   size(); addEventListener("resize", function () { size(); if (still) frame(0); });
   requestAnimationFrame(frame);
 })();
-document.getElementById("quote").addEventListener("submit", function (e) {
-  e.preventDefault();
-  var f = this, status = document.getElementById("formStatus");
-  if (!f.name.value.trim() || !f.phone.value.trim()) { status.textContent = "Add your name and phone so we can call you back."; return; }
-  var url = f.getAttribute("data-endpoint");
-  if (!url) { status.textContent = "Preview only: nothing was sent."; return; }
-  fetch(url, { method: "POST", body: new FormData(f) })
-    .then(function (r) { status.textContent = r.ok ? "Sent. We'll call you back." : "That didn't go through. Please call us."; })
-    .catch(function () { status.textContent = "That didn't go through. Please call us."; });
-});
+// Service clip (services.media): loads only near the viewport; muted loop. Reduced motion gets the poster only.
+(function () {
+  var v = document.querySelector("video.svc-clip"); if (!v) return;
+  function load() { v.poster = v.dataset.poster; if (matchMedia("(prefers-reduced-motion: reduce)").matches) return; v.src = v.dataset.src; var p = v.play(); if (p) p.catch(function () {}); }
+  if (!("IntersectionObserver" in window)) return load();
+  var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { io.disconnect(); load(); } }, { rootMargin: "300px" });
+  io.observe(v);
+})();
+(function () {
+  var f = document.getElementById("quote");
+  if (!f) return;
+  f.t0.value = String(Date.now());
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var status = document.getElementById("formStatus");
+    var name = f.name.value.trim(), digits = f.phone.value.replace(/\D/g, "");
+    if (!name || !digits) { status.textContent = "Add your name and phone so we can call you back."; (name ? f.phone : f.name).focus(); return; }
+    if (digits.length < 10 || digits.length > 11) { status.textContent = "Check the phone number: it needs all 10 digits."; f.phone.focus(); return; }
+    if (f.company_site.value || Date.now() - Number(f.t0.value) < 3000) { status.textContent = "Sent. We'll call you back."; f.reset(); return; }
+    var url = f.getAttribute("data-endpoint");
+    if (!url) { status.textContent = "Preview only: nothing was sent."; return; }
+    var data = new FormData(f); data.delete("company_site"); data.delete("t0");
+    fetch(url, { method: "POST", body: data })
+      .then(function (r) { status.textContent = r.ok ? "Sent. We'll call you back." : "That didn't go through. Please call us."; if (r.ok) f.reset(); })
+      .catch(function () { status.textContent = "That didn't go through. Please call us."; });
+  });
+})();
 </script>
 </body>
 </html>
