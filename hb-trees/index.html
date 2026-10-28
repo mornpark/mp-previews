@@ -29,7 +29,7 @@
   "@type": "HomeAndConstructionBusiness",
   "name": "HB Trees",
   "description": "Tree removal, trimming, stump grinding, pruning, land clearing and 24/7 emergency response from Gold Run, CA, across the Sierra foothills.",
-  "telephone": "+1-530-305-9121",
+  "telephone": "+1-279-250-4104",
   "image": "assets/site/truck-after.jpg",
   "logo": "assets/higgsfield/monogram-112.jpg",
   "address": {
@@ -111,7 +111,7 @@
       "name": "Do you take emergency calls?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, 24 hours a day. Storm damage and fallen trees, any time. Call (530) 305-9121."
+        "text": "Yes, 24 hours a day. Storm damage and fallen trees, any time. Call (279) 250-4104."
       }
     },
     {
@@ -346,6 +346,14 @@ footer .lic{font-family:var(--f-data);font-size:.85rem}
 .has-form .stage-img{width:min(560px,100%);margin:0 0 4px -12px}
 .stage-img ~ .logo-video-stage{grid-row:1;grid-column:1;background:transparent;aspect-ratio:2/1}
 .stage-img ~ .logo-video-stage video{mix-blend-mode:screen;-webkit-mask-image:none;mask-image:none}
+/* hero.logo_word: a word set beside the finished mark, in the header's brand font. Fades in after the intro. */
+.logo-video-stage:has(.logo-word){position:relative;container-type:inline-size}
+.logo-word{position:absolute;left:45.3%;bottom:calc(59.8% - .2em);color:#fff;font:500 6cqw/1 var(--f-body);text-transform:uppercase;letter-spacing:.03em;opacity:0;transform:translateX(-6px);transition:opacity 2.2s ease,transform 2.2s ease;pointer-events:none}
+.word-in .logo-word{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.logo-word{transition:none}}
+/* With a word, move the mark left so mark + word (sized for JW's all-caps word) are centred together over the stage (the video's black is screened out). */
+.logo-video-stage:has(.logo-word:not(:empty)) video{transform:translateX(-17.9%)}
+.brand .caps{text-transform:uppercase;letter-spacing:.03em}
 
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 footer .legal{display:flex;gap:18px;flex-wrap:wrap}
@@ -359,7 +367,7 @@ footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3p
   <div class="wrap">
     <a class="brand" href="#top"><img src="assets/higgsfield/monogram-112.jpg" alt="" width="44" height="44"><span>HB Trees</span></a>
     <nav aria-label="Sections"><a href="#services">Services</a><a href="#work">Work</a><a href="#area">Area</a><a href="#faq">FAQ</a></nav>
-    <a class="pill" href="tel:+15303059121">(530) 305-9121</a>
+    <a class="pill" href="tel:+12792504104">(279) 250-4104</a>
   </div>
 </header>
 
@@ -370,13 +378,13 @@ footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3p
     <div class="wrap hero-in has-form">
       <div class="hero-main">
         
-        <div class="logo-video-stage"><video id="logoVideo" src="assets/higgsfield/logo-intro.mp4" data-poster="assets/higgsfield/logo-intro-end.jpg" muted playsinline autoplay preload="auto" aria-hidden="true"></video><span class="sr-only">HB Trees logo</span></div>
+        <div class="logo-video-stage"><video id="logoVideo" src="assets/higgsfield/logo-intro.mp4" data-poster="assets/higgsfield/logo-intro-end.jpg" muted playsinline autoplay preload="auto" aria-hidden="true"></video><span class="logo-word" aria-hidden="true"></span><span class="sr-only">HB Trees logo</span></div>
         
         <p class="eyebrow">Gold Run, CA · Sierra Nevada foothills</p>
         <h1 id="h1">Your local, reliable tree service.</h1>
         <p class="lede">HB Trees is a tree care company based in Gold Run, California. Tyler, Chandler and the crew remove, trim and prune trees, grind stumps and clear land across the Sierra foothills, and they answer the phone 24 hours a day.</p>
         <div class="ctas">
-          <a class="btn primary" href="tel:+15303059121">Call (530) 305-9121</a>
+          <a class="btn primary" href="tel:+12792504104">Call (279) 250-4104</a>
           
         </div>
         <ul class="facts" aria-label="At a glance"><li>5.0 on Google · 16 reviews</li><li>Open 24 hours</li><li>Free estimates</li><li>Licensed &amp; insured</li></ul>
@@ -422,7 +430,7 @@ footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3p
       <p class="eyebrow">24/7 emergency</p>
       <h2 id="h-feat">A tree came down? Call now.</h2>
       <p class="lede">When a large tree fell onto a semi truck on a rural road, HB Trees came out, removed it safely and cleared the scene. Storms don't keep business hours, and neither does the emergency line.</p>
-      <a class="btn primary" href="tel:+15303059121">Call (530) 305-9121</a>
+      <a class="btn primary" href="tel:+12792504104">Call (279) 250-4104</a>
     </div>
   </section>
 
@@ -517,7 +525,7 @@ footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3p
       <h2 id="h-faq">Questions people ask.</h2>
       <dl>
         <div><dt>Where is HB Trees based, and how far do you travel?</dt><dd>Gold Run, California, on I-80. We cover Lake Tahoe and Truckee down through the foothills to Roseville and Sacramento.</dd></div>
-        <div><dt>Do you take emergency calls?</dt><dd>Yes, 24 hours a day. Storm damage and fallen trees, any time. Call (530) 305-9121.</dd></div>
+        <div><dt>Do you take emergency calls?</dt><dd>Yes, 24 hours a day. Storm damage and fallen trees, any time. Call (279) 250-4104.</dd></div>
         <div><dt>Are estimates free?</dt><dd>Yes. We come out, look at the job and give you a straight number before any work starts.</dd></div>
         <div><dt>Do you grind stumps?</dt><dd>Yes, 6 to 12 inches below grade, with the debris raked and hauled away.</dd></div>
         <div><dt>Do you do fire-safety clearing?</dt><dd>Yes. Fire-safety clearance trimming and land clearing for brush, trees and debris.</dd></div>
@@ -532,7 +540,7 @@ footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3p
         <p class="eyebrow">Free estimate</p>
         <h2 id="h-contact">Or just call.</h2>
         <p>Tree down, storm damage, or a quick question: the line is open 24 hours.</p>
-        <a class="big" href="tel:+15303059121">(530) 305-9121</a>
+        <a class="big" href="tel:+12792504104">(279) 250-4104</a>
         
       </div>
       
@@ -542,13 +550,13 @@ footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3p
 
 <footer>
   <div class="wrap">
-    <div><b>HB Trees</b><br>Gold Run, California<br><a href="tel:+15303059121">(530) 305-9121</a></div>
+    <div><b>HB Trees</b><br>Gold Run, California<br><a href="tel:+12792504104">(279) 250-4104</a></div>
     <div class="lic">Licensed &amp; insured in California · License # to add</div>
     <nav class="legal" aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
   </div>
 </footer>
 
-<div class="callbar"><a href="tel:+15303059121">Call HB Trees · (530) 305-9121</a></div>
+<div class="callbar"><a href="tel:+12792504104">Call HB Trees · (279) 250-4104</a></div>
 
 <script>
 // Scroll motion: headings rise in, lists stagger, before/after pairs wipe from before to after,
@@ -614,8 +622,11 @@ document.querySelectorAll(".ba-toggle").forEach(function (b) {
   window.__logoMode = true;
   var c = document.getElementById("grove"); if (c) c.style.display = "none";
   // The poster is the finished logo, so it's only for reduced motion (or a failed video); otherwise the intro starts from black.
-  v.addEventListener("error", function () { v.poster = v.dataset.poster; });
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); v.poster = v.dataset.poster; }
+  // Optional word beside the mark (hero.logo_word) fades in once the intro has finished.
+  var word = function () { v.parentNode.classList.add("word-in"); };
+  v.addEventListener("ended", word);
+  v.addEventListener("error", function () { v.poster = v.dataset.poster; word(); });
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); v.poster = v.dataset.poster; word(); }
 })();
 // Hero option A: logo lines. Lines appear out of the black, wander with random
 // 90-degree turns for ~4s, then glide into the exact logo strokes, which then
